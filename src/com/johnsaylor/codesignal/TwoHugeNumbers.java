@@ -50,28 +50,26 @@ public class TwoHugeNumbers {
 
         int remainder = 0;
 
-        int run = Math.min(aString.length(), bString.length());
+        int run = Math.max(aString.length(), bString.length());
 
         aString = aString.reverse();
         bString = bString.reverse();
 
         int index = 0;
 
-        System.out.println(aString.charAt(index));
-        System.out.println(bString.charAt(0));
+        while (index < run) {
+            int aNum = index < aString.length() ? Integer.parseInt(String.valueOf(aString.charAt(index))) : 0;
+            int bNum = index < bString.length() ? Integer.parseInt(String.valueOf(bString.charAt(index))) : 0;
 
-        while (index <= run) {
-            int aNum = index < aString.length() ? aString.charAt(index) : 0;
-            int bNum = index < bString.length() ? bString.charAt(index) : 0;
-            String temp = String.valueOf(aNum + bNum + remainder);
+            String sum = String.valueOf(aNum + bNum + remainder);
+            System.out.println(aNum + " + " + bNum + " = " + sum);
 
-            System.out.print(aNum + " " + bNum + " " + temp + " ");
-
-            if (temp.length() == 1) {
-                result.append(temp);
+            if (sum.length() == 1) {
+                result.append(sum);
+                remainder = 0;
             } else {
-                result.append(temp.charAt(1));
-                remainder = temp.charAt(0);
+                result.append(String.valueOf(sum.charAt(1)));
+                remainder = Integer.parseInt(sum.substring(0,1));
             }
 
             index++;
@@ -82,6 +80,10 @@ public class TwoHugeNumbers {
         System.out.println(bString.toString());
 
         System.out.println(result.toString());
+
+
+
+
         return null;
     }
 }
