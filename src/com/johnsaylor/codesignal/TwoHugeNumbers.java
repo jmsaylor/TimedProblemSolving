@@ -16,6 +16,8 @@ public class TwoHugeNumbers {
 
          ListNode<Integer> b = new ListNode<>(1);
          b.next = new ListNode<>(8001);
+         b.next.next = new ListNode<>(7432);
+         b.next.next.next = new ListNode<>(4889);
 
         addTwoHugeNumbers(a, b);
     }
@@ -24,6 +26,7 @@ public class TwoHugeNumbers {
         StringBuilder aString = new StringBuilder();
         StringBuilder bString = new StringBuilder();
 
+        // convert huge numbers into strings
         while (a != null) {
             if (aString.length() == 0) aString.append(a.value);
             else {
@@ -46,18 +49,16 @@ public class TwoHugeNumbers {
             b = b.next;
         }
 
+
+        // add them up (as strings)
         StringBuilder result = new StringBuilder();
 
         int remainder = 0;
 
-        int run = Math.max(aString.length(), bString.length());
-
         aString = aString.reverse();
         bString = bString.reverse();
 
-        int index = 0;
-
-        while (index < run) {
+        for (int index = 0; index < Math.max(aString.length(), bString.length()); index++) {
             int aNum = index < aString.length() ? Integer.parseInt(String.valueOf(aString.charAt(index))) : 0;
             int bNum = index < bString.length() ? Integer.parseInt(String.valueOf(bString.charAt(index))) : 0;
 
@@ -71,9 +72,33 @@ public class TwoHugeNumbers {
                 result.append(String.valueOf(sum.charAt(1)));
                 remainder = Integer.parseInt(sum.substring(0,1));
             }
-
-            index++;
         }
+
+        //package result into nodes
+
+        result = result.reverse();
+
+        int offset = result.length() % 4;
+
+        ListNode<Integer> resultNodes;
+        ListNode<Integer> head;
+
+        if (offset != 0) {
+            resultNodes = new ListNode<>(Integer.parseInt(result.substring(0, offset)));
+        } else {
+            resultNodes = new ListNode<>(0001);
+        }
+
+        head = resultNodes;
+
+
+        for (int i = offset; i < (result.length() / 4); i++) {
+            resultNodes.next = new ListNode<>(Integer.parseInt(result.substring(i * 4, (i * 4) + 4)));
+            resultNodes = resultNodes.next;
+        }
+
+        if (offset == 0) head = head.next;
+
         System.out.println("------------------------");
 
         System.out.println(aString.toString());
@@ -81,9 +106,14 @@ public class TwoHugeNumbers {
 
         System.out.println(result.toString());
 
-
-
+        print(head);
 
         return null;
+    }
+
+    void print(ListNode head) {
+         if (head == null) return;
+        System.out.println(head.value);
+        print(head.next);
     }
 }
