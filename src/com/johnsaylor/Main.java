@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        var test = new PrimesComposites();
-        test.test();
+        DistinctSlices.test();
     }
 }
