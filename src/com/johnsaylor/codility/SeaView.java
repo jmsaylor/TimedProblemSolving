@@ -1,4 +1,4 @@
-package com.johnsaylor;
+package com.johnsaylor.codility;
 
 import java.util.ArrayList;
 import java.util.Arrays;

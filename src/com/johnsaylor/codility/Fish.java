@@ -1,4 +1,4 @@
-package com.johnsaylor;
+package com.johnsaylor.codility;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

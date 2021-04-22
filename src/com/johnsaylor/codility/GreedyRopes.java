@@ -1,4 +1,4 @@
-package com.johnsaylor;
+package com.johnsaylor.codility;
 
 public class GreedyRopes {
     public int solution(int K, int[] A) {

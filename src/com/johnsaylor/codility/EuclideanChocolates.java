@@ -1,4 +1,4 @@
-package com.johnsaylor;
+package com.johnsaylor.codility;
 
 public class EuclideanChocolates {
     public int solution(int N, int M) {

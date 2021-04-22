@@ -1,7 +1,4 @@
-package com.johnsaylor;
-
-import com.johnsaylor.codesignal.LinkedListReverse;
-import com.johnsaylor.codesignal.TwoHugeNumbers;
+package com.johnsaylor.codility;
 
 public class Main {
 
