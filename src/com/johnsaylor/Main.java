@@ -1,4 +1,6 @@
-package com.johnsaylor.codility;
+package com.johnsaylor;
+
+import com.johnsaylor.codility.DistinctSlices;
 
 public class Main {
 
