@@ -16,15 +16,13 @@ public class SpaceXLaunchSequence {
         for (int i = 0; i < stepNumbers.length; i++) {
             String name = systemNames[i];
             int step = stepNumbers[i];
-            if (!previousSequence.containsKey(name)) {
-                previousSequence.put(name, step);
-            } else {
+            if (previousSequence.containsKey(name)) {
                 int previous = previousSequence.get(name);
                 if (previous >= step) {
                     return false;
                 }
-                previousSequence.put(name, step);
             }
+            previousSequence.put(name, step);
         }
 
         return true;
