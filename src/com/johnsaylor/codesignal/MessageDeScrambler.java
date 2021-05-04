@@ -31,14 +31,14 @@ public class MessageDeScrambler {
                 received.put(fragmentData[i], 1);
             }
 
-            occurrences.put(seq[i], received);
+//            occurrences.put(seq[i], received);
         }
 
         System.out.println(occurrences.size());
 
         char[] result = new char[occurrences.size() - 1];
 
-        int threshold = n / 2;
+        float threshold = n / (float) 2;
 
         for (Map.Entry<Integer, HashMap<Character, Integer>> set : occurrences.entrySet()) {
             int charIndex = set.getKey();
