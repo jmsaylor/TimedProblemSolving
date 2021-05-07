@@ -8,7 +8,7 @@ public class ATOI {
     }
 
     static public int myAtoi(String s) {
-        public int myAtoi(String s) {
+
             if (s.length() < 1) return 0;
             String tempResult = "";
             int index = 0;
