@@ -17,11 +17,11 @@ public class PalindromeNumber {
         String string = String.valueOf(x);
         StringBuilder firstHalf  = new StringBuilder(string.substring(0, string.length() / 2));
 
-        Pattern pattern = Pattern.compile(firstHalf.reverse().toString());
+        String pattern = firstHalf.reverse().toString();
 
         int startSecondHalf = string.length() % 2 == 0 ? string.length() / 2 : string.length() / 2 + 1;
 
-        return pattern.matcher(string.substring(startSecondHalf)).matches();
+        return Pattern.matches(pattern, string.substring(startSecondHalf));
 
     }
 
