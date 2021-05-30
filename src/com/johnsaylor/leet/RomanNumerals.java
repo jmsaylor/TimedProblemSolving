@@ -2,7 +2,7 @@ package com.johnsaylor.leet;
 
 public class RomanNumerals {
     public static void main(String[] args) {
-        System.out.println(intToRoman(2021));
+        System.out.println(intToRoman(58));
 
     }
 
@@ -39,13 +39,15 @@ public class RomanNumerals {
         if (n.isBlank()) return result;
         int value = Integer.parseInt(n);
 
-        if (value == 5) {
-            result = "D";
-        } else if (value == 9) {
+        if (value == 9) {
             result = "CM";
         } else if (value == 4) {
             result = "CD";
         } else {
+            if (value >= 5) {
+                result = "D";
+                value = value - 5;
+            }
             for (int i = 0; i < value; i++) {
                 result = result.concat("C");
             }
@@ -59,13 +61,16 @@ public class RomanNumerals {
         if (n.isBlank()) return result;
         int value = Integer.parseInt(n);
 
-        if (value == 5) {
-            result = "L";
-        } else if ( value == 9) {
+
+        if ( value == 9) {
             result = "XC";
         } else if ( value == 4) {
             result = "XL";
         } else {
+            if (value >= 5) {
+                result = "L";
+                value = value - 5;
+            }
             for (int i = 0; i < value; i++) {
                 result = result.concat("X");
             }
@@ -79,13 +84,15 @@ public class RomanNumerals {
         if (n.isBlank()) return result;
         int value = Integer.parseInt(n);
 
-        if (value == 5) {
-            result = "V";
-        } else if (value == 9) {
+        if (value == 9) {
             result = "IX";
         } else if (value == 4) {
             result = "IV";
         } else {
+            if (value >= 5) {
+                result = "V";
+                value = value - 5;
+            }
             for (int i = 0; i < value; i++) {
                 result = result.concat("I");
             }
