@@ -5,11 +5,12 @@ import java.util.Arrays;
 public class FreedomFinancialCoverDebts {
 
     public static void main(String[] args) {
-        System.out.println(coverDebts(50, new int[]{2,2,5}, new int[]{200, 100, 150}));
-//        System.out.println(coverDebts(40, new int[]{2,2,5}, new int[]{75, 25, 25}));
+//        System.out.println(coverDebts(50, new int[]{2,2,5}, new int[]{200, 100, 150}));
+        System.out.println(coverDebts(40, new int[]{2,2,5}, new int[]{75, 25, 25}));
     }
 
     static double coverDebts(int s, int[] debts, int[] interests) {
+
         for (int i = 0; i < debts.length; i++) {
             for (int j = 0; j < debts.length - 1; j++) {
                 if (interests[j] < interests[j + 1]) {
@@ -38,8 +39,11 @@ public class FreedomFinancialCoverDebts {
         System.out.println(Arrays.toString(balances));
 
         for (int i = 0; i < interests.length; i++) {
-            if (interests[i] < 100) {
-                interests[i] += 100;
+            if (interests[i] <= 100) {
+                for (int j = 0; j < interests.length; j++) {
+                    interests[j] += 100;
+                }
+                break;
             }
         }
 
